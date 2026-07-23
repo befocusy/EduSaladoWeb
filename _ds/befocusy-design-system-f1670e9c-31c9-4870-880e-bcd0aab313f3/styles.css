@@ -1,0 +1,5 @@
+/* ==========================================================================
+   Befocusy — Design System entry stylesheet
+   Consumers link THIS one file. It pulls in the full token + type layer.
+   ========================================================================== */
+@import url('colors_and_type.css');

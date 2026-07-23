@@ -1,0 +1,359 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "social/linkedin-ia-tier/**",
+              "ui_kits/website/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Inter|Poppins|JetBrains Mono))/i]",
+        "message": "Font not provided by the design system. Available: Inter, Poppins, JetBrains Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContactModal'] > JSXAttribute > JSXIdentifier[name!=/^(?:open|onClose|key|ref|className|style|children)$/]",
+        "message": "<ContactModal> doesn't accept that prop. Declared props: open, onClose."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CtaBand'] > JSXAttribute > JSXIdentifier[name!=/^(?:onContact|key|ref|className|style|children)$/]",
+        "message": "<CtaBand> doesn't accept that prop. Declared props: onContact."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Hero'] > JSXAttribute > JSXIdentifier[name!=/^(?:onContact|key|ref|className|style|children)$/]",
+        "message": "<Hero> doesn't accept that prop. Declared props: onContact."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|color|style|className|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size, color, style, className."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Nav'] > JSXAttribute > JSXIdentifier[name!=/^(?:onContact|key|ref|className|style|children)$/]",
+        "message": "<Nav> doesn't accept that prop. Declared props: onContact."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Pricing'] > JSXAttribute > JSXIdentifier[name!=/^(?:onContact|key|ref|className|style|children)$/]",
+        "message": "<Pricing> doesn't accept that prop. Declared props: onContact."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "App": {
+        "replaces": []
+      },
+      "ContactModal": {
+        "replaces": []
+      },
+      "CtaBand": {
+        "replaces": []
+      },
+      "Footer": {
+        "replaces": []
+      },
+      "Hero": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "Method": {
+        "replaces": []
+      },
+      "Nav": {
+        "replaces": []
+      },
+      "Pricing": {
+        "replaces": []
+      },
+      "Results": {
+        "replaces": []
+      },
+      "Services": {
+        "replaces": []
+      },
+      "Testimonial": {
+        "replaces": []
+      },
+      "TrustBar": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--bg-brand",
+      "--bg-brand-deep",
+      "--bg-tint",
+      "--bg1",
+      "--bg2",
+      "--bg3",
+      "--border",
+      "--border-brand",
+      "--border-strong",
+      "--brand",
+      "--brand-bright",
+      "--brand-deep",
+      "--brand-tint",
+      "--danger",
+      "--danger-bg",
+      "--fg-brand",
+      "--fg-onbrand",
+      "--fg1",
+      "--fg2",
+      "--fg3",
+      "--font-display",
+      "--font-mono",
+      "--font-sans",
+      "--info",
+      "--info-bg",
+      "--ink",
+      "--leading-normal",
+      "--leading-relaxed",
+      "--leading-snug",
+      "--leading-tight",
+      "--radius-2xl",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--radius-xl",
+      "--radius-xs",
+      "--shadow-brand",
+      "--shadow-brand-sm",
+      "--shadow-lg",
+      "--shadow-md",
+      "--shadow-sm",
+      "--shadow-xl",
+      "--shadow-xs",
+      "--slate-100",
+      "--slate-200",
+      "--slate-300",
+      "--slate-400",
+      "--slate-50",
+      "--slate-500",
+      "--slate-600",
+      "--slate-700",
+      "--slate-800",
+      "--slate-900",
+      "--space-1",
+      "--space-10",
+      "--space-12",
+      "--space-16",
+      "--space-2",
+      "--space-20",
+      "--space-24",
+      "--space-3",
+      "--space-32",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--success-bg",
+      "--teal-100",
+      "--teal-200",
+      "--teal-300",
+      "--teal-400",
+      "--teal-50",
+      "--teal-500",
+      "--teal-600",
+      "--teal-700",
+      "--teal-800",
+      "--teal-900",
+      "--teal-950",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-5xl",
+      "--text-6xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-caps",
+      "--tracking-normal",
+      "--tracking-snug",
+      "--tracking-tight",
+      "--tracking-wide",
+      "--warning",
+      "--warning-bg",
+      "--white",
+      "--workos-100",
+      "--workos-200",
+      "--workos-300",
+      "--workos-400",
+      "--workos-50",
+      "--workos-500",
+      "--workos-600",
+      "--workos-700",
+      "--workos-800",
+      "--workos-900",
+      "--workos-950",
+      "--workos-bg-brand",
+      "--workos-border",
+      "--workos-brand",
+      "--workos-brand-deep",
+      "--workos-fg-brand",
+      "--workos-tint"
+    ],
+    "tokenKinds": {
+      "--teal-50": "color",
+      "--teal-100": "color",
+      "--teal-200": "color",
+      "--teal-300": "color",
+      "--teal-400": "color",
+      "--teal-500": "color",
+      "--teal-600": "color",
+      "--teal-700": "color",
+      "--teal-800": "color",
+      "--teal-900": "color",
+      "--teal-950": "color",
+      "--brand": "color",
+      "--brand-bright": "color",
+      "--brand-deep": "color",
+      "--brand-tint": "color",
+      "--slate-50": "color",
+      "--slate-100": "color",
+      "--slate-200": "color",
+      "--slate-300": "color",
+      "--slate-400": "color",
+      "--slate-500": "color",
+      "--slate-600": "color",
+      "--slate-700": "color",
+      "--slate-800": "color",
+      "--slate-900": "color",
+      "--ink": "color",
+      "--white": "color",
+      "--fg1": "color",
+      "--fg2": "color",
+      "--fg3": "color",
+      "--fg-onbrand": "color",
+      "--fg-brand": "color",
+      "--bg1": "color",
+      "--bg2": "color",
+      "--bg3": "color",
+      "--bg-brand": "color",
+      "--bg-brand-deep": "color",
+      "--bg-tint": "color",
+      "--border": "color",
+      "--border-strong": "color",
+      "--border-brand": "color",
+      "--success": "color",
+      "--success-bg": "color",
+      "--warning": "color",
+      "--warning-bg": "color",
+      "--danger": "color",
+      "--danger-bg": "color",
+      "--info": "color",
+      "--info-bg": "color",
+      "--workos-50": "color",
+      "--workos-100": "color",
+      "--workos-200": "color",
+      "--workos-300": "color",
+      "--workos-400": "color",
+      "--workos-500": "color",
+      "--workos-600": "color",
+      "--workos-700": "color",
+      "--workos-800": "color",
+      "--workos-900": "color",
+      "--workos-950": "color",
+      "--workos-brand": "color",
+      "--workos-brand-deep": "color",
+      "--workos-tint": "color",
+      "--workos-fg-brand": "color",
+      "--workos-bg-brand": "color",
+      "--workos-border": "color",
+      "--font-sans": "font",
+      "--font-display": "font",
+      "--font-mono": "font",
+      "--text-xs": "font",
+      "--text-sm": "font",
+      "--text-base": "font",
+      "--text-lg": "font",
+      "--text-xl": "font",
+      "--text-2xl": "font",
+      "--text-3xl": "font",
+      "--text-4xl": "font",
+      "--text-5xl": "font",
+      "--text-6xl": "font",
+      "--leading-tight": "font",
+      "--leading-snug": "font",
+      "--leading-normal": "font",
+      "--leading-relaxed": "font",
+      "--tracking-tight": "font",
+      "--tracking-snug": "font",
+      "--tracking-normal": "font",
+      "--tracking-wide": "font",
+      "--tracking-caps": "font",
+      "--radius-xs": "radius",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-xl": "radius",
+      "--radius-2xl": "radius",
+      "--radius-pill": "radius",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-8": "spacing",
+      "--space-10": "spacing",
+      "--space-12": "spacing",
+      "--space-16": "spacing",
+      "--space-20": "spacing",
+      "--space-24": "spacing",
+      "--space-32": "spacing",
+      "--shadow-xs": "shadow",
+      "--shadow-sm": "shadow",
+      "--shadow-md": "shadow",
+      "--shadow-lg": "shadow",
+      "--shadow-xl": "shadow",
+      "--shadow-brand": "shadow",
+      "--shadow-brand-sm": "shadow"
+    },
+    "fontFamilies": [
+      "Inter",
+      "JetBrains Mono",
+      "Poppins"
+    ]
+  }
+}

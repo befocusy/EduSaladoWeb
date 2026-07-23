@@ -1,0 +1,258 @@
+/* ==========================================================================
+   Befocusy — Colors & Type foundations
+   Digital productivity consultancy (Notion · AI · Automation)
+   Import this file to inherit brand tokens.
+   ========================================================================== */
+
+/* Poppins (display) + JetBrains Mono (code) stay on CDN — no local files uploaded.
+   Inter is self-hosted below from the uploaded brand font files. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ---- Inter (self-hosted brand font) ---------------------------------- */
+@font-face { font-family:'Inter'; font-style:normal; font-weight:400; font-display:swap; src:url('fonts/Inter-Regular.woff') format('woff'); }
+@font-face { font-family:'Inter'; font-style:italic; font-weight:400; font-display:swap; src:url('fonts/Inter-Italic.woff') format('woff'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:500; font-display:swap; src:url('fonts/Inter-Medium.woff') format('woff'); }
+@font-face { font-family:'Inter'; font-style:italic; font-weight:500; font-display:swap; src:url('fonts/Inter-MediumItalic.woff') format('woff'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:600; font-display:swap; src:url('fonts/Inter-SemiBold.woff') format('woff'); }
+@font-face { font-family:'Inter'; font-style:italic; font-weight:600; font-display:swap; src:url('fonts/Inter-SemiBoldItalic.woff') format('woff'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:700; font-display:swap; src:url('fonts/Inter-Bold.woff') format('woff'); }
+@font-face { font-family:'Inter'; font-style:italic; font-weight:700; font-display:swap; src:url('fonts/Inter-BoldItalic.woff') format('woff'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:800; font-display:swap; src:url('fonts/Inter-ExtraBold.woff') format('woff'); }
+@font-face { font-family:'Inter'; font-style:italic; font-weight:800; font-display:swap; src:url('fonts/Inter-ExtraBoldItalic.woff') format('woff'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:900; font-display:swap; src:url('fonts/Inter-Black.woff') format('woff'); }
+
+:root {
+  /* ----------------------------------------------------------------------
+     BRAND PALETTE — Teal system (taken directly from the logo)
+     #0B3F3A deep forest teal (wordmark "be/y", dark surfaces)
+     #0F766E teal-700        (primary brand, "focus" wordmark)
+     #14B8A6 teal-500        (bright gem, accents & highlights)
+     ---------------------------------------------------------------------- */
+  --teal-50:  #F0FDFA;
+  --teal-100: #CCFBF1;
+  --teal-200: #99F6E4;
+  --teal-300: #5EEAD4;
+  --teal-400: #2DD4BF;
+  --teal-500: #14B8A6;   /* gem bright */
+  --teal-600: #0D9488;
+  --teal-700: #0F766E;   /* logo wordmark */
+  --teal-800: #115E59;
+  --teal-900: #0B3F3A;   /* deep forest — logo dark */
+  --teal-950: #06251F;
+
+  /* Brand semantic aliases */
+  --brand:          var(--teal-700);
+  --brand-bright:   var(--teal-500);
+  --brand-deep:     var(--teal-900);
+  --brand-tint:     var(--teal-50);
+
+  /* ----------------------------------------------------------------------
+     NEUTRALS — cool slate, pairs with teal
+     ---------------------------------------------------------------------- */
+  --slate-50:  #F8FAFC;
+  --slate-100: #F1F5F9;
+  --slate-200: #E2E8F0;
+  --slate-300: #CBD5E1;
+  --slate-400: #94A3B8;
+  --slate-500: #64748B;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1E293B;
+  --slate-900: #0F172A;
+  --ink:       #0C1A19;   /* near-black with a teal undertone */
+  --white:     #FFFFFF;
+
+  /* ----------------------------------------------------------------------
+     SEMANTIC FOREGROUND / BACKGROUND
+     ---------------------------------------------------------------------- */
+  --fg1: var(--ink);            /* primary text */
+  --fg2: var(--slate-600);      /* secondary text */
+  --fg3: var(--slate-400);      /* tertiary / muted, captions */
+  --fg-onbrand: #FFFFFF;        /* text on teal surfaces */
+  --fg-brand: var(--teal-700);  /* brand-colored text / links */
+
+  --bg1: #FFFFFF;               /* page background */
+  --bg2: var(--slate-50);       /* subtle raised / alternating sections */
+  --bg3: var(--slate-100);      /* sunken wells, inputs */
+  --bg-brand: var(--teal-700);  /* solid brand surface */
+  --bg-brand-deep: var(--teal-900);
+  --bg-tint: var(--teal-50);    /* faint mint wash for feature blocks */
+
+  --border: var(--slate-200);
+  --border-strong: var(--slate-300);
+  --border-brand: var(--teal-200);
+
+  /* ----------------------------------------------------------------------
+     STATUS COLORS
+     ---------------------------------------------------------------------- */
+  --success: #059669;
+  --success-bg: #ECFDF5;
+  --warning: #D97706;
+  --warning-bg: #FFFBEB;
+  --danger:  #DC2626;
+  --danger-bg: #FEF2F2;
+  --info: var(--teal-600);
+  --info-bg: var(--teal-50);
+
+  /* ======================================================================
+     WORKOS — sub-brand (workos.befocusy.com)
+     All-in-one client work platform. A deeper, bluer PETROL teal — same
+     family as Befocusy but darker and more cyan, so the two read as
+     siblings without competing. Mark is a geometric "workspace panel".
+     Primary #1B6C78 · Deep wordmark #0D2E35. Use the --workos-* tokens
+     (and font-display) for WorkOS surfaces; everything else (neutrals,
+     spacing, radii, shadows, type) is shared with Befocusy.
+     ====================================================================== */
+  --workos-50:  #ECF5F6;
+  --workos-100: #CFE7EA;
+  --workos-200: #A2CFD4;
+  --workos-300: #6EB0B8;
+  --workos-400: #3C8B96;
+  --workos-500: #1B6C78;   /* brand — logo mark (petrol) */
+  --workos-600: #155863;
+  --workos-700: #124851;
+  --workos-800: #103A42;
+  --workos-900: #0D2E35;   /* deep petrol — logo wordmark */
+  --workos-950: #081A1F;
+
+  --workos-brand:      var(--workos-500);
+  --workos-brand-deep: var(--workos-900);
+  --workos-tint:       var(--workos-50);
+  --workos-fg-brand:   var(--workos-700);
+  --workos-bg-brand:   var(--workos-500);
+  --workos-border:     var(--workos-200);
+
+  /* ----------------------------------------------------------------------
+     TYPOGRAPHY
+     Inter  — primary UI & body (requested)
+     Poppins— geometric display, echoes the logo's "focus" wordmark
+     JetBrains Mono — code / automation snippets / data
+     ---------------------------------------------------------------------- */
+  --font-sans:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Type scale (1.250 major-third-ish, tuned) */
+  --text-xs:   0.75rem;   /* 12 */
+  --text-sm:   0.875rem;  /* 14 */
+  --text-base: 1rem;      /* 16 */
+  --text-lg:   1.125rem;  /* 18 */
+  --text-xl:   1.375rem;  /* 22 */
+  --text-2xl:  1.75rem;   /* 28 */
+  --text-3xl:  2.25rem;   /* 36 */
+  --text-4xl:  3rem;      /* 48 */
+  --text-5xl:  3.75rem;   /* 60 */
+  --text-6xl:  4.75rem;   /* 76 */
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight: -0.02em;
+  --tracking-snug: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-caps: 0.08em;
+
+  /* ----------------------------------------------------------------------
+     RADII
+     ---------------------------------------------------------------------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+  /* ----------------------------------------------------------------------
+     SPACING (4px base)
+     ---------------------------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ----------------------------------------------------------------------
+     SHADOWS — soft, cool, low-contrast (calm/clarity)
+     Brand glow uses teal for CTAs.
+     ---------------------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(12, 26, 25, 0.06);
+  --shadow-sm: 0 1px 3px rgba(12, 26, 25, 0.08), 0 1px 2px rgba(12,26,25,0.04);
+  --shadow-md: 0 4px 12px rgba(12, 26, 25, 0.08), 0 2px 4px rgba(12,26,25,0.04);
+  --shadow-lg: 0 12px 32px rgba(12, 26, 25, 0.10), 0 4px 8px rgba(12,26,25,0.04);
+  --shadow-xl: 0 24px 56px rgba(12, 26, 25, 0.14);
+  --shadow-brand: 0 10px 28px rgba(15, 118, 110, 0.30);
+  --shadow-brand-sm: 0 4px 14px rgba(15, 118, 110, 0.25);
+}
+
+/* ==========================================================================
+   SEMANTIC ELEMENT STYLES — opt-in via .bf-prose or use as reference
+   ========================================================================== */
+.bf-prose, .bf-type {
+  font-family: var(--font-sans);
+  color: var(--fg1);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+.bf-display,
+.bf-h1, .bf-h2, .bf-h3 {
+  font-family: var(--font-display);
+  color: var(--brand-deep);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.bf-display { font-size: var(--text-6xl); }
+.bf-h1 { font-size: var(--text-4xl); }
+.bf-h2 { font-size: var(--text-3xl); }
+.bf-h3 { font-size: var(--text-2xl); font-weight: 600; }
+
+.bf-h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--fg1);
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--leading-snug);
+}
+
+.bf-lead {
+  font-size: var(--text-xl);
+  line-height: var(--leading-relaxed);
+  color: var(--fg2);
+  font-weight: 400;
+}
+
+.bf-body { font-size: var(--text-base); line-height: var(--leading-normal); color: var(--fg2); }
+.bf-small { font-size: var(--text-sm); line-height: var(--leading-normal); color: var(--fg2); }
+
+.bf-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.bf-caption { font-size: var(--text-xs); color: var(--fg3); letter-spacing: var(--tracking-snug); }
+
+.bf-mono { font-family: var(--font-mono); font-size: var(--text-sm); }
+
+a.bf-link { color: var(--fg-brand); text-decoration: none; }
+a.bf-link:hover { text-decoration: underline; text-underline-offset: 3px; }
