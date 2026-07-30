@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edu Salado — IA, procesos y Notion para tu negocio</title>
+<meta name="description" content="Edu Salado ayuda a negocios a montar sistemas digitales simples con Notion e IA. Fundador de Befocusy y autor de «Digitalización Consciente Positiva».">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edusalado.com/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Edu Salado — IA, procesos y Notion para tu negocio">
+<meta property="og:description" content="Ayudo a negocios a montar sistemas digitales simples con Notion e IA, para que dejen de perder horas en el caos operativo.">
+<meta property="og:url" content="https://edusalado.com/">
+<meta property="og:image" content="https://edusalado.com/assets/befocusy-isotipo.svg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Edu Salado — IA, procesos y Notion para tu negocio">
+<meta name="twitter:description" content="Ayudo a negocios a montar sistemas digitales simples con Notion e IA.">
+<meta name="twitter:image" content="https://edusalado.com/assets/befocusy-isotipo.svg">
+<meta name="theme-color" content="#0B3F3A">
+<script src="./support.js"></script>
+</head>
+<body style="margin:0;background:#FFFFFF;">
+<style>html{background:#FFFFFF;}</style>
+<div id="boot" style="position:fixed;inset:0;z-index:10000;background:#FFFFFF;transition:opacity .4s ease"></div>
+<x-dc>
+<helmet>
+  <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0B3F3A"/><polygon points="55,20 34,58 47,58 43,82 66,44 51,44" fill="#ffffff"/></svg></template>
+  <link rel="icon" type="image/svg+xml" href="./assets/befocusy-isotipo.svg">
+  <link rel="stylesheet" href="_ds/befocusy-design-system-f1670e9c-31c9-4870-880e-bcd0aab313f3/colors_and_type.css">
+  <link rel="stylesheet" href="_ds/befocusy-design-system-f1670e9c-31c9-4870-880e-bcd0aab313f3/styles.css">
+  <script src="_ds/befocusy-design-system-f1670e9c-31c9-4870-880e-bcd0aab313f3/_ds_bundle.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    html, body { margin: 0; background: var(--bg1); overflow-x: hidden; }
+    a.foot-link { color: var(--fg2); text-decoration: none; transition: color .18s ease; }
+    a.foot-link:hover { color: var(--teal-700); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeUp .5s cubic-bezier(0.4,0,0.2,1) both; }
+    @media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } }
+    .lang-opt:hover { background: var(--bg-tint) !important; }
+    @media (max-width: 560px) {
+      .hero-photo, .hero-photo image-slot { width: 96px !important; height: 96px !important; }
+      .hero-title { font-size: 30px !important; }
+      .hero-sub { font-size: 16px !important; }
+      .cta-card { padding: var(--space-6) !important; }
+      .cta-title { font-size: 22px !important; }
+      .foot-row { gap: var(--space-4) !important; flex-wrap: wrap; justify-content: center; }
+      .page-wrap { padding-left: var(--space-4) !important; padding-right: var(--space-4) !important; padding-top: var(--space-8) !important; }
+      .lang-switcher button { padding: var(--space-2) var(--space-3) !important; font-size: var(--text-xs, 12px) !important; }
+    }
+  </style>
+</helmet>
+
+<div style="font-family: var(--font-sans); background: var(--bg1); min-height: 100vh; display: flex; flex-direction: column; align-items: center;">
+
+  <div class="page-wrap" style="width: 100%; max-width: 720px; box-sizing: border-box; padding: var(--space-10) var(--space-6) var(--space-24); display: flex; flex-direction: column; align-items: center; gap: var(--space-16);">
+
+    <div class="fade-in" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-6);">
+      <div class="lang-switcher" ref="{{ switcherRef }}" style="position: relative; z-index: 500;">
+        <button onClick="{{ toggleMenu }}" style="display: flex; align-items: center; gap: var(--space-2); background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: var(--space-2) var(--space-4); box-shadow: var(--shadow-sm); font-size: var(--text-sm); font-weight: 600; color: var(--fg2); cursor: pointer; font-family: var(--font-sans);">
+          <x-import component-from-global-scope="BefocusyDesignSystem_f1670e.Icon" name="globe" size="16" color="var(--teal-700)" hint-size="16px,16px"></x-import>
+          {{ currentLangLabel }}
+          <x-import component-from-global-scope="BefocusyDesignSystem_f1670e.Icon" name="chevron-down" size="14" color="var(--fg3)" hint-size="14px,14px"></x-import>
+        </button>
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; top: calc(100% + var(--space-2)); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-md); overflow: hidden; min-width: 150px;">
+            <sc-for list="{{ langOptions }}" as="opt" hint-placeholder-count="4">
+              <button class="lang-opt" onClick="{{ opt.select }}" style="display: flex; align-items: center; gap: var(--space-2); width: 100%; text-align: left; padding: var(--space-3) var(--space-4); background: {{ opt.bg }}; border: none; font-size: var(--text-sm); color: var(--fg1); cursor: pointer; font-family: var(--font-sans);">{{ opt.label }}</button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <div class="hero-photo" style="width: 128px; height: 128px; flex-shrink: 0;">
+        <image-slot id="edu-photo" shape="circle" placeholder="Foto de Edu" style="width: 100%; height: 100%; border-radius: 50%; box-shadow: var(--shadow-md); border: 3px solid var(--white); box-sizing: border-box;" src="./image01-mrx8tg3y-s513.jpg"></image-slot>
+      </div>
+      <p class="bf-eyebrow" style="margin: 0; color: var(--teal-700);">{{ t.eyebrow }}</p>
+      <h1 class="hero-title bf-h1" style="margin: 0; font-size: var(--text-4xl, 40px); line-height: 1.1;">{{ t.title }}</h1>
+      <p class="hero-sub bf-prose" style="margin: 0; max-width: 480px; color: var(--fg2); font-size: var(--text-lg, 19px); line-height: 1.55;">{{ t.sub }}</p>
+      <p style="margin: 0; display: flex; align-items: center; gap: var(--space-2); color: var(--fg3); font-size: var(--text-sm);">
+        <x-import component-from-global-scope="BefocusyDesignSystem_f1670e.Icon" name="book-open" size="16" color="var(--fg3)" hint-size="16px,16px"></x-import>
+        {{ t.book }}
+      </p>
+    </div>
+
+    <a href="{{ befocusyHref }}" class="fade-in cta-card" style="text-decoration: none; width: 100%; box-sizing: border-box; display: block; background: var(--teal-900); border-radius: var(--radius-lg); padding: var(--space-8); box-shadow: var(--shadow-brand); transition: transform .2s cubic-bezier(0.4,0,0.2,1), box-shadow .2s ease;" style-hover="transform: translateY(-2px); box-shadow: var(--shadow-xl);">
+      <p class="bf-eyebrow" style="margin: 0 0 var(--space-2); color: var(--teal-300);">{{ t.proyectoEyebrow }}</p>
+      <h2 class="cta-title" style="margin: 0 0 var(--space-3); font-family: var(--font-display); font-size: var(--text-2xl, 28px); color: var(--white); letter-spacing: var(--tracking-tight);">Befocusy</h2>
+      <p style="margin: 0 0 var(--space-6); color: rgba(255,255,255,0.82); font-size: var(--text-base); line-height: 1.55; max-width: 460px;">{{ t.befocusyDesc }}</p>
+      <span style="display: inline-flex; align-items: center; gap: var(--space-2); background: var(--white); color: var(--teal-800); font-weight: 600; font-size: var(--text-base); padding: var(--space-3) var(--space-6); border-radius: var(--radius-pill);">
+        {{ t.visita }}
+        <x-import component-from-global-scope="BefocusyDesignSystem_f1670e.Icon" name="arrow-right" size="18" color="var(--teal-800)" hint-size="18px,18px"></x-import>
+      </span>
+    </a>
+
+    <a href="https://www.youtube.com/@EduSalado" target="_blank" rel="noopener" class="fade-in cta-card" style="text-decoration: none; width: 100%; box-sizing: border-box; display: block; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-8); box-shadow: var(--shadow-sm); transition: box-shadow .2s ease, border-color .2s ease;" style-hover="box-shadow: var(--shadow-md); border-color: var(--border-brand);">
+      <p class="bf-eyebrow" style="margin: 0 0 var(--space-2); color: var(--teal-700);">{{ t.contenidoEyebrow }}</p>
+      <h2 class="cta-title" style="margin: 0 0 var(--space-3); font-family: var(--font-display); font-size: var(--text-2xl, 28px); color: var(--brand-deep); letter-spacing: var(--tracking-tight);">{{ t.canalTitle }}</h2>
+      <p style="margin: 0 0 var(--space-6); color: var(--fg2); font-size: var(--text-base); line-height: 1.55; max-width: 460px;">{{ t.canalDesc }}</p>
+      <span style="display: inline-flex; align-items: center; gap: var(--space-2); background: var(--bg-tint); color: var(--teal-800); font-weight: 600; font-size: var(--text-base); padding: var(--space-3) var(--space-6); border-radius: var(--radius-pill);">
+        {{ t.verCanal }}
+        <x-import component-from-global-scope="BefocusyDesignSystem_f1670e.Icon" name="play" size="18" color="var(--teal-800)" hint-size="18px,18px"></x-import>
+      </span>
+    </a>
+
+    <a href="https://befocusy.com/newsletter/" class="fade-in cta-card" style="text-decoration: none; width: 100%; box-sizing: border-box; display: block; background: var(--bg-tint); border: 1px solid var(--border-brand); border-radius: var(--radius-lg); padding: var(--space-8); box-shadow: var(--shadow-sm); transition: box-shadow .2s ease, border-color .2s ease;" style-hover="box-shadow: var(--shadow-md);">
+      <p class="bf-eyebrow" style="margin: 0 0 var(--space-2); color: var(--teal-700);">{{ t.newsletterEyebrow }}</p>
+      <h2 class="cta-title" style="margin: 0 0 var(--space-3); font-family: var(--font-display); font-size: var(--text-2xl, 28px); color: var(--brand-deep); letter-spacing: var(--tracking-tight);">{{ t.newsletterTitle }}</h2>
+      <p style="margin: 0 0 var(--space-6); color: var(--fg2); font-size: var(--text-base); line-height: 1.55; max-width: 460px;">{{ t.newsletterDesc }}</p>
+      <span style="display: inline-flex; align-items: center; gap: var(--space-2); background: var(--white); color: var(--teal-800); font-weight: 600; font-size: var(--text-base); padding: var(--space-3) var(--space-6); border-radius: var(--radius-pill); border: 1px solid var(--border-brand);">
+        {{ t.suscribirse }}
+        <x-import component-from-global-scope="BefocusyDesignSystem_f1670e.Icon" name="mail" size="18" color="var(--teal-800)" hint-size="18px,18px"></x-import>
+      </span>
+    </a>
+
+  </div>
+
+  <div style="width: 100%; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-10) var(--space-6) var(--space-12);">
+    <div class="foot-row" style="display: flex; align-items: center; gap: var(--space-6);">
+      <a href="https://www.youtube.com/@EduSalado" target="_blank" rel="noopener" class="foot-link" style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm);">
+        <x-import component-from-global-scope="BefocusyDesignSystem_f1670e.Icon" name="play" size="18" color="currentColor" hint-size="18px,18px"></x-import>
+        YouTube
+      </a>
+      <a href="https://www.linkedin.com/in/edusalado/" target="_blank" rel="noopener" class="foot-link" style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm);">
+        <x-import component-from-global-scope="BefocusyDesignSystem_f1670e.Icon" name="briefcase" size="18" color="currentColor" hint-size="18px,18px"></x-import>
+        LinkedIn
+      </a>
+      <a href="https://befocusy.com/contacto/" target="_blank" rel="noopener" class="foot-link" style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm);">
+        <x-import component-from-global-scope="BefocusyDesignSystem_f1670e.Icon" name="mail" size="18" color="currentColor" hint-size="18px,18px"></x-import>
+        Email
+      </a>
+    </div>
+    <p class="bf-caption" style="margin: 0; color: var(--fg3);">{{ t.copyright }}</p>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const LANGS = {
+  es: {
+    name: 'Español',
+    metaTitle: 'Edu Salado — IA, procesos y Notion para tu negocio',
+    metaDesc: 'Edu Salado ayuda a negocios a montar sistemas digitales simples con Notion e IA. Fundador de Befocusy y autor de «Digitalización Consciente Positiva».',
+    cargando: 'Cargando…',
+    eyebrow: 'IA Y PROCESOS DIGITALES',
+    title: 'Hola, soy Edu Salado',
+    sub: 'Ayudo a los negocios a construir sistemas digitales simples, con el poder de la IA, para que dejen de perder horas en el caos operativo.',
+    book: 'Autor de «Digitalización Consciente Positiva (DCP)»',
+    proyectoEyebrow: 'MI PROYECTO',
+    befocusyDesc: 'Convierto tu caos operativo en un sistema digital escalable. Sin teoría, sin plantillas genéricas, sin ruido.',
+    visita: 'Visita Befocusy',
+    contenidoEyebrow: 'CONTENIDO GRATUITO',
+    canalTitle: 'Digitalización consciente',
+    canalDesc: 'Tutoriales para optimizar tus procesos con IA y automatizaciones, explicados sin humo.',
+    verCanal: 'Ver el canal',
+    newsletterEyebrow: 'NEWSLETTER',
+    newsletterTitle: 'Únete a la newsletter',
+    newsletterDesc: 'Ideas prácticas sobre IA, procesos y automatizaciones directas a tu correo, sin spam.',
+    suscribirse: 'Suscribirme',
+    copyright: '© Sal Digital Skills S.L. Todos los derechos reservados.',
+  },
+  en: {
+    name: 'English',
+    metaTitle: 'Edu Salado — AI, processes and Notion for your business',
+    metaDesc: 'Edu Salado helps businesses build simple digital systems with Notion and AI. Founder of Befocusy and author of «Conscious Positive Digitalization».',
+    cargando: 'Loading…',
+    eyebrow: 'AI & DIGITAL PROCESSES',
+    title: "Hi, I'm Edu Salado",
+    sub: 'I help businesses build simple digital systems, powered by AI, so they stop wasting hours on operational chaos.',
+    book: 'Author of «Conscious Positive Digitalization (DCP)»',
+    proyectoEyebrow: 'MY PROJECT',
+    befocusyDesc: 'I turn your operational chaos into a scalable digital system. No theory, no generic templates, no noise.',
+    visita: 'Visit Befocusy',
+    contenidoEyebrow: 'FREE CONTENT',
+    canalTitle: 'Conscious digitalization',
+    canalDesc: 'Tutorials to optimize your processes with AI and automations, explained with no fluff.',
+    verCanal: 'Watch the channel',
+    newsletterEyebrow: 'NEWSLETTER',
+    newsletterTitle: 'Join the newsletter',
+    newsletterDesc: 'Practical ideas on AI, processes and automations straight to your inbox, no spam.',
+    suscribirse: 'Subscribe',
+    copyright: '© Sal Digital Skills S.L. All rights reserved.',
+  },
+  pl: {
+    name: 'Polski',
+    metaTitle: 'Edu Salado — AI, procesy i Notion dla Twojej firmy',
+    metaDesc: 'Edu Salado pomaga firmom budować proste systemy cyfrowe z Notion i AI. Założyciel Befocusy i autor „Świadomej Pozytywnej Cyfryzacji”.',
+    cargando: 'Ładowanie…',
+    eyebrow: 'AI I PROCESY CYFROWE',
+    title: 'Cześć, jestem Edu Salado',
+    sub: 'Pomagam firmom budować proste systemy cyfrowe, napędzane przez AI, aby przestały tracić godziny w operacyjnym chaosie.',
+    book: 'Autor „Świadomej Pozytywnej Cyfryzacji (DCP)”',
+    proyectoEyebrow: 'MÓJ PROJEKT',
+    befocusyDesc: 'Zamieniam Twój chaos operacyjny w skalowalny system cyfrowy. Bez teorii, bez ogólnych szablonów, bez szumu.',
+    visita: 'Odwiedź Befocusy',
+    contenidoEyebrow: 'BEZPŁATNE TREŚCI',
+    canalTitle: 'Świadoma cyfryzacja',
+    canalDesc: 'Samouczki optymalizacji procesów z AI i automatyzacjami, wyjaśnione bez lania wody.',
+    verCanal: 'Zobacz kanał',
+    newsletterEyebrow: 'NEWSLETTER',
+    newsletterTitle: 'Dołącz do newslettera',
+    newsletterDesc: 'Praktyczne pomysły o AI, procesach i automatyzacjach prosto na Twoją skrzynkę, bez spamu.',
+    suscribirse: 'Zapisz się',
+    copyright: '© Sal Digital Skills S.L. Wszelkie prawa zastrzeżone.',
+  },
+  pt: {
+    name: 'Brasileiro',
+    metaTitle: 'Edu Salado — IA, processos e Notion para o seu negócio',
+    metaDesc: 'Edu Salado ajuda negócios a montar sistemas digitais simples com Notion e IA. Fundador da Befocusy e autor de «Digitalização Consciente Positiva».',
+    cargando: 'Carregando…',
+    eyebrow: 'IA E PROCESSOS DIGITAIS',
+    title: 'Olá, sou o Edu Salado',
+    sub: 'Ajudo negócios a construir sistemas digitais simples, com o poder da IA, para que parem de perder horas no caos operacional.',
+    book: 'Autor de «Digitalização Consciente Positiva (DCP)»',
+    proyectoEyebrow: 'MEU PROJETO',
+    befocusyDesc: 'Transformo o seu caos operacional em um sistema digital escalável. Sem teoria, sem modelos genéricos, sem ruído.',
+    visita: 'Visite a Befocusy',
+    contenidoEyebrow: 'CONTEÚDO GRATUITO',
+    canalTitle: 'Digitalização consciente',
+    canalDesc: 'Tutoriais para otimizar seus processos com IA e automações, explicados sem enrolação.',
+    verCanal: 'Ver o canal',
+    newsletterEyebrow: 'NEWSLETTER',
+    newsletterTitle: 'Assine a newsletter',
+    newsletterDesc: 'Ideias práticas sobre IA, processos e automações direto no seu e-mail, sem spam.',
+    suscribirse: 'Assinar',
+    copyright: '© Sal Digital Skills S.L. Todos os direitos reservados.',
+  },
+};
+const LANG_CODES = ['es', 'en', 'pl', 'pt'];
+
+class Component extends DCLogic {
+  state = { loaded: false, lang: 'es', menuOpen: false };
+  switcherRef = React.createRef();
+
+  _onDocDown = (e) => {
+    const el = this.switcherRef.current;
+    if (this.state.menuOpen && el && !el.contains(e.target)) this.setState({ menuOpen: false });
+  };
+
+  componentDidMount() {
+    const finish = () => {
+      const ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+      ready.then(() => requestAnimationFrame(() => this.reveal()));
+    };
+    if (document.readyState === 'complete') finish();
+    else window.addEventListener('load', finish, { once: true });
+    this._fallback = setTimeout(() => this.reveal(), 2500);
+    document.addEventListener('mousedown', this._onDocDown);
+
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = (params.get('lan') || '').toLowerCase();
+    let lang = 'es';
+    if (LANG_CODES.includes(fromUrl)) {
+      lang = fromUrl;
+    } else {
+      const nav = (navigator.language || 'es').toLowerCase();
+      if (nav.startsWith('pt')) lang = 'pt';
+      else if (nav.startsWith('pl')) lang = 'pl';
+      else if (nav.startsWith('en')) lang = 'en';
+      else if (nav.startsWith('es')) lang = 'es';
+      else lang = 'es';
+    }
+    this.setState({ lang });
+    this.applyMeta(lang);
+    this.syncUrl(lang);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._fallback);
+    document.removeEventListener('mousedown', this._onDocDown);
+  }
+
+  reveal() {
+    if (this._revealed) return;
+    this._revealed = true;
+    clearTimeout(this._fallback);
+    const boot = document.getElementById('boot');
+    if (boot) { boot.style.opacity = '0'; setTimeout(() => boot.remove(), 450); }
+    this.setState({ loaded: true });
+  }
+
+  applyMeta(lang) {
+    const t = LANGS[lang];
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+    document.title = t.metaTitle;
+    const setMeta = (selector, value) => {
+      const el = document.querySelector(selector);
+      if (el) el.setAttribute('content', value);
+    };
+    setMeta('meta[name="description"]', t.metaDesc);
+    setMeta('meta[property="og:title"]', t.metaTitle);
+    setMeta('meta[property="og:description"]', t.metaDesc);
+    setMeta('meta[name="twitter:title"]', t.metaTitle);
+    setMeta('meta[name="twitter:description"]', t.metaDesc);
+  }
+
+  syncUrl(lang) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('lan', lang);
+    window.history.replaceState({}, '', url);
+  }
+
+  selectLang(lang) {
+    this.setState({ lang, menuOpen: false });
+    this.applyMeta(lang);
+    this.syncUrl(lang);
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const t = LANGS[lang];
+    return {
+      loaderOpacity: this.state.loaded ? 0 : 1,
+      loaderPointerEvents: this.state.loaded ? 'none' : 'auto',
+      t,
+      currentLangLabel: lang.toUpperCase(),
+      menuOpen: this.state.menuOpen,
+      switcherRef: this.switcherRef,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      befocusyHref: `https://befocusy.com?lan=${lang}`,
+      langOptions: LANG_CODES.map(code => ({
+        label: LANGS[code].name,
+        bg: code === lang ? 'var(--bg-tint)' : 'var(--white)',
+        select: () => this.selectLang(code),
+      })),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
