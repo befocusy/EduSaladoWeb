@@ -1,0 +1,5 @@
+JUEGOS DE ESPAÑOL DE DAWID
+
+Sube TODO el contenido de esta carpeta a una carpeta de tu servidor (por ejemplo /juegos-dawid/). Abre https://tu-dominio.com/juegos-dawid/ . Cada subcarpeta contiene index.html, style.css y app.js. No se necesita backend, instalación ni base de datos. Se pueden abrir también localmente haciendo doble clic en index.html. La profesora comparte la pestaña en Google Meet y pulsa los botones. En el juego de deletreo se puede escribir directamente en el chat de Meet. La puntuación no se guarda al cerrar o recargar.
+
+Nota: La gran misión sustituye el reto de acentuación por «¿Cómo se lee?», como se acordó.
